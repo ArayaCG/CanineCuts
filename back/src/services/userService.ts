@@ -1,34 +1,31 @@
+import CredentialDto from "../dto/CredentialDto";
 import UserDto from "../dto/UserDto";
-import UserLoginDto from "../dto/UserLoginDto";
 import IUser from "../interfaces/IUser";
-import IUserLogin from "../interfaces/IUserLogin";
+import { createCredentialService } from "./credentialService";
 
 const users: IUser[] = [];
 
 let id: number = 1;
 
-export const createUserService = async (userData: UserDto): Promise<IUser> => {
+export const createUserService = async (userData: UserDto, loginData: CredentialDto): Promise<IUser> => {
+    const credentialsId = await createCredentialService(loginData);
+    
     const newUser: IUser = {
         id,
         name: userData.name,
-        lastName: userData.lastName,
         email: userData.email,
-        password: userData.password,
-        phone: userData.phone,
-        direction: userData.direction,
+        birthdate: userData.birthdate,
+        nDni: userData.nDni,
+        credentialsId,
+
     };
     users.push(newUser);
     id++;
     return newUser;
 };
 
-export const loginUsersService = async (userData: UserLoginDto): Promise<IUserLogin> => {
-    let loginUser = users.find((user) => user.email === userData.email && user.password === userData.password);
-    if (loginUser) {
-        return loginUser;
-    } else {
-        return { email: "undefined", password: "undefined" };
-    }
-};
+export const loginUsersService = async () => {
+
+}
+export const getUsersService = async () => {};
 export const getUserService = async () => {};
-export const deleteUserService = async () => {};

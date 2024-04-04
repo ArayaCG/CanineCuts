@@ -1,11 +1,10 @@
 interface UserDto{
-    name: string,
-    lastName: string,
-    email: string,
-    password: string,
-    phone: number,
-    direction: string,
-
+  
+    name: string;
+    email: string;
+    birthdate: Date;
+    nDni: string;
+    credentialsId: number;
 }
 
 export default UserDto;
