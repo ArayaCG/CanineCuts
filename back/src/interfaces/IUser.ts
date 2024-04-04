@@ -1,8 +1,11 @@
 interface IUser {
     id: number;
     name: string;
-    email: string;
-    active: boolean;
+    lastName: string,
+    email: string,
+    password: string,
+    phone: number,
+    direction: string,
 }
 
 export default IUser;

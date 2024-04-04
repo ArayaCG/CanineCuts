@@ -1,7 +1,11 @@
 interface UserDto{
     name: string,
+    lastName: string,
     email: string,
-    active: boolean
+    password: string,
+    phone: number,
+    direction: string,
+
 }
 
 export default UserDto;

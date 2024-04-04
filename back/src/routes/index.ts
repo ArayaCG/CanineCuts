@@ -1,12 +1,11 @@
 import { Router } from "express";
-import { createUsers, getUsers, deleteUsers } from "../controllers/userController";
+import usersRoute from "./usersRoute";
+import appointmentsRoute from "./appointmentsRoute";
 
 const router: Router = Router();
 
-router.post("/users", createUsers)
-
-router.get("/users")
-
-router.delete("/users")
+router.use("/users", usersRoute)
+router.use("/appointments", appointmentsRoute)
+router.use("/appointment", appointmentsRoute)
 
 export default router;
