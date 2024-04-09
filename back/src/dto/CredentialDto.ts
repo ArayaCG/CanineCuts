@@ -1,5 +1,4 @@
-interface CredentialDto{
-
+interface CredentialDto {
     username: string;
     password: string;
 }

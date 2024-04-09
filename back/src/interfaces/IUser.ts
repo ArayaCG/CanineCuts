@@ -2,7 +2,7 @@ interface IUser {
     id: number;
     name: string;
     email: string;
-    birthdate: Date;
+    birthdate: string;
     nDni: string;
     credentialsId: number;
 }

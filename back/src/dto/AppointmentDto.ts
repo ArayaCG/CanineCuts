@@ -1,5 +1,4 @@
-interface IAppointment {
-    id: number;
+interface IAppointmentDto {
     date: string;
     time: string;
     userId: number;
@@ -7,4 +6,4 @@ interface IAppointment {
     description: string;
 }
 
-export default IAppointment;
+export default IAppointmentDto;

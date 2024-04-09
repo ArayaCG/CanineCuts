@@ -2,31 +2,26 @@ import CredentialDto from "../dto/CredentialDto";
 import ICredential from "../interfaces/ICredential";
 
 const credentials: ICredential[] = [];
-let id: number = 1;
+let idCredential: number = 1;
 
 export const createCredentialService = async (userData: CredentialDto): Promise<number> => {
     const newCredential: ICredential = {
-        id,
+        id: idCredential++,
         username: userData.username,
-        password: userData.password
+        password: userData.password,
     };
-
     credentials.push(newCredential);
-    id++;
-    
-    return newCredential.id; 
+    return newCredential.id;
 };
 
 export const verifyCredentialsService = async (userData: CredentialDto): Promise<number | null> => {
-    const credential = credentials.find(cred => cred.username === userData.username);
-
-    if (!credential) {
-        return null;
-    }
-
-    if (credential.password === userData.password) {
-        return credential.id;
+    const { username, password } = userData;
+    const foundCredential = credentials.find(
+        (credential) => credential.username === username && credential.password === password
+    );
+    if (foundCredential && foundCredential.username === username && foundCredential.password === password) {
+        return foundCredential.id;
     } else {
-        return null;
+        throw Error("Credenciales incorrectas");
     }
 };
