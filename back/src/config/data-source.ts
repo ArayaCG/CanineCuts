@@ -1,5 +1,6 @@
 import {DataSource} from "typeorm";
 import { PASSWORD_SQL } from "./envs";
+import { User } from "../entities/User";
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -7,10 +8,12 @@ export const AppDataSource = new DataSource({
     port: 5432,
     username: "postgres",
     password: PASSWORD_SQL,
-    database: "test",
+    database: "demo_typeorm",
     synchronize: true,
-    logging: true,
-    entities: [],
+    logging: false,
+    entities: [User],
     subscribers: [],
     migrations: [],
 })
+
+export const UserModel = AppDataSource.getRepository(User);
