@@ -36,5 +36,3 @@ export const createUserService = async (userData: UserDto): Promise<User> => {
     await UserModel.save(user);
     return user;
 };
-
-export const loginUsersService = async () => {};

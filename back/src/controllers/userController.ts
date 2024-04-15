@@ -1,7 +1,9 @@
 import { Request, Response } from "express";
-import { createUserService, loginUsersService, getUserByIdService, getUsersService } from "../services/userService";
+import { createUserService, getUserByIdService, getUsersService } from "../services/userService";
 import UserDto from "../dto/UserDto";
 import { User } from "../entities/User";
+import { verifyCredentialsService } from "../services/credentialService";
+import { UserModel } from "../config/data-source";
 
 export const getUsers = async (req: Request, res: Response) => {
     try {
@@ -32,9 +34,21 @@ export const createUsers = async (req: Request, res: Response) => {
     }
 };
 
-export const loginUsers = async (req: Request, res: Response) => {
+export const loginUser = async (req: Request, res: Response) => {
+    const { username, password } = req.body;
     try {
-        res.status(200).send(`${200}: Acá se mostraran cuando se logee`);
+        const credencial = await verifyCredentialsService({ username, password });
+        if (credencial) {
+            const user = await UserModel.findOneBy({
+                credentialsId: {
+                    id: credencial.id,
+                },
+            });
+            res.status(200).json({
+                login: true,
+                user,
+            });
+        }
     } catch (error: any) {
         res.status(400).json({ message: error.message });
     }
