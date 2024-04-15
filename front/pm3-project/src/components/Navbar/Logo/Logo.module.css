@@ -1,4 +1,7 @@
 .logo{
-    width: 12em;
-    height: 12em;
+    width: auto;
+    height: auto;
+}
+.contenedor{
+    display: flex;
 }

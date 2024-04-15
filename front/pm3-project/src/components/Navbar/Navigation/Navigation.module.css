@@ -1,4 +1,6 @@
 .navigation{
-    background-color: gold;
-    font-size: 4em;
+    color: black;
+    font-size: 2em;
+    text-decoration: none;
+    margin: 0 1em;
 }
