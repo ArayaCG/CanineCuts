@@ -3,7 +3,7 @@ import { createUserService, getUserByIdService, getUsersService } from "../servi
 import UserDto from "../dto/UserDto";
 import { User } from "../entities/User";
 import { verifyCredentialsService } from "../services/credentialService";
-import { UserModel } from "../config/data-source";
+import UserRepository from "../repositories/UserRepository";
 
 export const getUsers = async (req: Request, res: Response) => {
     try {
@@ -39,7 +39,7 @@ export const loginUser = async (req: Request, res: Response) => {
     try {
         const credencial = await verifyCredentialsService({ username, password });
         if (credencial) {
-            const user = await UserModel.findOneBy({
+            const user = await UserRepository.findOneBy({
                 credentialsId: {
                     id: credencial.id,
                 },

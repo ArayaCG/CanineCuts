@@ -1,11 +1,11 @@
-import { UserModel } from "../config/data-source";
+import UserRepository from "../repositories/UserRepository";
 import UserDto from "../dto/UserDto";
 import { Credential } from "../entities/Credential";
 import { User } from "../entities/User";
 import { createCredentialService } from "./credentialService";
 
 export const getUsersService = async (): Promise<User[]> => {
-    const allUser = await UserModel.find();
+    const allUser = await UserRepository.find();
     if (!allUser) {
         throw Error("Error en la base de datos al buscar usuarios");
     } else {
@@ -14,7 +14,7 @@ export const getUsersService = async (): Promise<User[]> => {
 };
 
 export const getUserByIdService = async (id: number): Promise<User> => {
-    const user: User | null = await UserModel.findOne({
+    const user: User | null = await UserRepository.findOne({
         where: { id },
         relations: ["appointment"],
     });
@@ -30,9 +30,9 @@ export const createUserService = async (userData: UserDto): Promise<User> => {
         username: userData.username,
         password: userData.password,
     });
-    const user: User = await UserModel.create(userData);
-    await UserModel.save(user);
+    const user: User = await UserRepository.create(userData);
+    await UserRepository.save(user);
     user.credentialsId = newCredential;
-    await UserModel.save(user);
+    await UserRepository.save(user);
     return user;
 };
