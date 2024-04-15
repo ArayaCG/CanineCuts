@@ -1,26 +1,22 @@
+import { CredentialModel } from "../config/data-source";
 import CredentialDto from "../dto/CredentialDto";
-import ICredential from "../interfaces/ICredential";
+import { Credential } from "../entities/Credential";
 
-const credentials: ICredential[] = [];
-let idCredential: number = 1;
-
-export const createCredentialService = async (userData: CredentialDto): Promise<number> => {
-    const newCredential: ICredential = {
-        id: idCredential++,
-        username: userData.username,
-        password: userData.password,
-    };
-    credentials.push(newCredential);
-    return newCredential.id;
+export const createCredentialService = async (credentialData: CredentialDto): Promise<Credential> => {
+    const newCredential: Credential = new Credential();
+    newCredential.username = credentialData.username;
+    newCredential.password = credentialData.password;
+    CredentialModel.manager.save(newCredential);
+    return newCredential;
 };
 
-export const verifyCredentialsService = async (userData: CredentialDto): Promise<number | null> => {
-    const { username, password } = userData;
-    const foundCredential = credentials.find(
-        (credential) => credential.username === username && credential.password === password
-    );
-    if (foundCredential && foundCredential.username === username && foundCredential.password === password) {
-        return foundCredential.id;
+export const verifyCredentialsService = async (credentialData: CredentialDto): Promise<Credential | null> => {
+    const { username, password } = credentialData;
+    const foundCredential: Credential | null = await CredentialModel.findOneBy({ username });
+    if (!foundCredential) {
+        throw Error("El usuario no existe en la base de datos");
+    } else if (foundCredential.password === password) {
+        return foundCredential;
     } else {
         throw Error("Credenciales incorrectas");
     }

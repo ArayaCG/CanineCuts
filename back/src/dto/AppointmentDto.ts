@@ -1,9 +1,11 @@
-interface IAppointmentDto {
+import { User } from "../entities/User";
+
+interface AppointmentDto {
     date: string;
     time: string;
-    userId: number;
+    userId: User;
     status: "active" | "cancelled";
     description: string;
 }
 
-export default IAppointmentDto;
+export default AppointmentDto;

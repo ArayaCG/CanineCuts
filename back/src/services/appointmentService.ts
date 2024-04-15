@@ -1,17 +1,45 @@
-// Implementar una función que pueda retornar el arreglo completo de turnos.
-// Implementar una función que pueda obtener el detalle de un turno por ID.
-// Implementar una función que pueda crear un nuevo turno, siempre guardando, además, el ID del usuario que ha creado dicho turno. NO PUEDE HABER UN TURNO SIN ID DE USUARIO. 
-// Implementar una función que reciba el id de un turno específico y una vez identificado el turno correspondiente, cambiar su estado a “cancelled”.
+import { AppointmentModel, UserModel } from "../config/data-source";
+import AppointmentDto from "../dto/AppointmentDto";
+import { Appointment } from "../entities/Appointment";
+import { User } from "../entities/User";
 
-import IAppointment from "../interfaces/IAppointment";
+export const getAllAppointmentService = async (): Promise<Appointment[]> => {
+    const appointments = await AppointmentModel.find();
+    return appointments;
+};
 
-const appointments: IAppointment[] = [];
+export const getAppointmentByIdService = async (id: number): Promise<Appointment> => {
+    const appointment = await AppointmentModel.findOneBy({ id });
+    if (appointment) {
+        return appointment;
+    } else {
+        throw Error("El turno no existe");
+    }
+};
 
-export const getUsersService = async (): Promise<IAppointment[]> => {
-    const allAppointments: IAppointment[] = appointments;
-    if(!allAppointments){
-        throw Error("Error en la base de datos al buscar usuarios")
-    }else{
-        return allAppointments;
+export const createAppointmentService = async (appointmentData: AppointmentDto): Promise<Appointment> => {
+    const { userId } = appointmentData;
+
+    const user: User | null = await UserModel.findOneBy({ id: userId.id });
+
+    if (!user) {
+        throw new Error("El usario no existe en la base de datos");
+    }
+
+    const newAppointment = await AppointmentModel.create(appointmentData);
+    newAppointment.userId = user;
+
+    await AppointmentModel.save(newAppointment);
+    return newAppointment;
+};
+
+export const changeStatusByIdService = async (id: number): Promise<Appointment> => {
+    try {
+        const appointment = await getAppointmentByIdService(id);
+        appointment.status = "cancelled";
+        await AppointmentModel.save(appointment);
+        return appointment;
+    } catch (error: any) {
+        throw new Error("Error al cancelar el turno");
     }
 };

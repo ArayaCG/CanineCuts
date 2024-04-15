@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Credential } from "./Credential";
+import { Appointment } from "./Appointment";
 
 @Entity({
     name: "users",
@@ -27,17 +29,10 @@ export class User {
     })
     nDni: string;
 
-    @Column()
-    credentialsId: number;
+    @OneToOne(() => Credential)
+    @JoinColumn()
+    credentialsId: Credential;
+
+    @OneToMany(() => Appointment, (appointment) => appointment.userId)
+    appointment: Appointment[];
 }
-
-// interface IUser {
-//     id: number;
-//     name: string;
-//     email: string;
-//     birthdate: string;
-//     nDni: string;
-//     credentialsId: number;
-// }
-
-// export default IUser;
