@@ -1,5 +1,5 @@
-import AppointmentRepository from "../repositories/AppointmentRepository";
-import UserRepository from "../repositories/UserRepository";
+import AppointmentRepository from "../config/repository/AppointmentRepository";
+import UserRepository from "../config/repository/UserRepository";
 import AppointmentDto from "../dto/AppointmentDto";
 import { Appointment } from "../entities/Appointment";
 import { User } from "../entities/User";

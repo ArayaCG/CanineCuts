@@ -3,7 +3,7 @@ import { createUserService, getUserByIdService, getUsersService } from "../servi
 import UserDto from "../dto/UserDto";
 import { User } from "../entities/User";
 import { verifyCredentialsService } from "../services/credentialService";
-import UserRepository from "../repositories/UserRepository";
+import UserRepository from "../config/repository/UserRepository";
 
 export const getUsers = async (req: Request, res: Response) => {
     try {

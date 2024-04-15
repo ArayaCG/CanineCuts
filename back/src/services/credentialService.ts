@@ -1,4 +1,4 @@
-import CredentialRepository from "../repositories/CredentialRepository";
+import CredentialRepository from "../config/repository/CredentialRepository";
 import CredentialDto from "../dto/CredentialDto";
 import { Credential } from "../entities/Credential";
 

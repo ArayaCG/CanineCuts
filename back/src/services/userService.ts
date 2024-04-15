@@ -1,4 +1,4 @@
-import UserRepository from "../repositories/UserRepository";
+import UserRepository from "../config/repository/UserRepository";
 import UserDto from "../dto/UserDto";
 import { Credential } from "../entities/Credential";
 import { User } from "../entities/User";

@@ -1,5 +1,5 @@
-import { AppDataSource } from "../config/data-source";
-import { Credential } from "../entities/Credential";
+import { AppDataSource } from "../data-source";
+import { Credential } from "../../entities/Credential";
 
 const CredentialRepository = AppDataSource.getRepository(Credential);
 

@@ -1,0 +1,11 @@
+.login{
+    background-color: brown;
+    color: white;
+    width: 10em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+.login:hover{
+    transform: scale(1.1);
+}
