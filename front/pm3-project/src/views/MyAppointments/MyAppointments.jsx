@@ -1,10 +1,22 @@
-import { useState } from "react";
-import { appointments } from "../../helpers/appointments";
+import { useEffect, useState } from "react";
 import Appointment from "../../components/Appointment/Appointment";
-import styles from "./MyAppointments.module.css"
+import styles from "./MyAppointments.module.css";
+import axios from "axios";
 
 const MyAppointments = () => {
-    const [myAppointments, setAppointments] = useState(appointments);
+    const [myAppointments, setAppointments] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get("http://localhost:3000/appointments/");
+                setAppointments(response.data);
+            } catch (error) {
+                console.log("Error a l obtener datos", error);
+            }
+        };
+        fetchData();
+    }, []);
 
     return (
         <>
