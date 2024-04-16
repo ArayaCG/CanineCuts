@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import styles from "./LoginButton.module.css"
+import { useState } from "react";
+import styles from "./LoginButton.module.css";
 
 const LoginButton = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLoginToggle = () => {
-    setIsLoggedIn(prevState => !prevState);
-  };
+    const handleLoginToggle = () => {
+        setIsLoggedIn((prevState) => !prevState);
+    };
 
-  return (
-    <button onClick={handleLoginToggle} className={styles.login}>
-      {isLoggedIn ? 'Cerrar Sesión' : 'Iniciar Sesión'}
-    </button>
-  );
-}
+    return (
+        <button onClick={handleLoginToggle} className={styles.login}>
+            {isLoggedIn ? "Log Out" : "Log In"}
+        </button>
+    );
+};
 
 export default LoginButton;

@@ -1,4 +1,4 @@
-.login{
+.login {
     background-color: brown;
     color: white;
     width: 10em;
@@ -6,6 +6,6 @@
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
-.login:hover{
+.login:hover {
     transform: scale(1.1);
 }

@@ -1,8 +1,0 @@
-.navbar{
-    display: flex;
-    background-color: gray;
-    height: 10vh;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-}

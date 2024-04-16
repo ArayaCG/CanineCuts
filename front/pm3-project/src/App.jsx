@@ -1,11 +1,13 @@
-import "./App.css";
-import Home from "./views/Home";
+import Navbar from "./components/Navbar/Navbar";
+import Appointments from "./views/MyAppointments/MyAppointments";
+import Home from "./views/Home/Home";
 
 function App() {
-
     return (
         <>
-           <Home/>
+            <Navbar />
+            <Home />
+            <Appointments />
         </>
     );
 }
