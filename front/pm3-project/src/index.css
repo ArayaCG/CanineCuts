@@ -53,24 +53,156 @@ a {
 }
 
 /* Form element reset */
-button,
 input,
-optgroup,
+button,
 select,
 textarea {
   margin: 0;
   font: inherit;
   color: inherit;
+  background: none;
+  border: none;
+  /* Ajusta otros estilos según sea necesario */
 }
 
 /* Resetting appearance */
 button {
   background-color: transparent;
-  border: none;
   padding: 0;
 }
 
 /* Resetting button */
 button:focus {
   outline: none;
+}
+
+/* Resetting images */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Resetting table */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Resetting fieldset */
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Resetting blockquote */
+blockquote {
+  quotes: none;
+}
+
+/* Resetting address */
+address {
+  font-style: normal;
+}
+
+/* Resetting embedded content */
+iframe,
+embed,
+object,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Resetting audio */
+audio {
+  display: inline-block;
+}
+
+/* Resetting inline elements */
+abbr[title],
+dfn {
+  cursor: help;
+}
+
+/* Resetting preformatted text */
+pre {
+  white-space: pre-wrap;
+}
+
+/* Resetting forms */
+input::-ms-clear {
+  display: none;
+}
+
+/* Resetting responsive media */
+img,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  max-width: 100%;
+}
+
+/* Resetting SVG */
+svg {
+  display: block;
+}
+
+/* Resetting details */
+details {
+  display: block;
+}
+
+/* Resetting summary */
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+/* Resetting progress */
+progress {
+  vertical-align: baseline;
+}
+
+/* Resetting text emphasis */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/* Resetting italic */
+i,
+cite,
+em {
+  font-style: italic;
+}
+
+/* Resetting subscript */
+sub {
+  vertical-align: sub;
+}
+
+/* Resetting superscript */
+sup {
+  vertical-align: super;
+}
+
+/* Resetting definition terms */
+dt {
+  font-weight: bold;
+}
+
+/* Resetting definition descriptions */
+dd {
+  margin: 0;
+}
+
+/* Resetting text formatting */
+mark {
+  background-color: transparent;
+  color: inherit;
 }
