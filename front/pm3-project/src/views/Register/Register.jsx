@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Register.module.css";
 import { validate } from "../../helpers/validate";
+import { postData } from "../../helpers/postData";
 
 const Register = () => {
     const initialState = {
@@ -10,22 +11,26 @@ const Register = () => {
         nDni: "",
         username: "",
         password: "",
+        passwordRepeat: "",
     };
 
-    // Corregir la desestructuración del array retornado por useState
     const [form, setForm] = useState(initialState);
-    const [errors, setErrors] = useState(initialState);
+    const [errors, setErrors] = useState({});
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setForm({ ...form, [name]: value });
-
-        const erroresDeCampo = validate({ ...form, [name]: value });
-        setErrors({ ...errors, [name]: erroresDeCampo[name] });
     };
 
-    const handleSubmit = () => {};
+    useEffect(() => {
+        setErrors(validate(form, errors));
+    }, [form]);
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        postData(form);
+        setForm(initialState);
+    };
 
     return (
         <div className={styles.formConteiner}>
@@ -36,7 +41,7 @@ const Register = () => {
                     { label: "Email", name: "email", type: "text" },
                     { label: "Username", name: "username", type: "text" },
                     { label: "Password", name: "password", type: "password" },
-                    { label: "Repeat password", name: "repitePassword", type: "password" },
+                    { label: "Repeat password", name: "passwordRepeat", type: "password" },
                     { label: "DNI", name: "nDni", type: "text" },
                     { label: "Birthdate", name: "birthdate", type: "date" },
                 ].map(({ name, label, type }) => {
@@ -58,7 +63,19 @@ const Register = () => {
                         </div>
                     );
                 })}
-                <button disabled={errors} type="submit" className={styles.button}>
+                <button
+                    disabled={
+                        errors.name ||
+                        errors.username ||
+                        errors.password ||
+                        errors.email ||
+                        errors.passwordRepeat ||
+                        errors.nDni ||
+                        errors.birthdate
+                    }
+                    type="submit"
+                    className={styles.button}
+                >
                     Register
                 </button>
             </form>
