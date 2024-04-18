@@ -1,18 +1,28 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate   } from "react-router-dom";
 import styles from "./LoginButton.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutUser } from "../../../redux/reducer";
 
 const LoginButton = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const user = useSelector((state) => state.userActive);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const handleLoginToggle = () => {
-        setIsLoggedIn((prevState) => !prevState);
+    const handleLogout = () => {
+        dispatch(logoutUser());
+        navigate("/");
     };
 
     return (
-        <Link to={isLoggedIn ? "/" : "/login"} className={styles.login}>
-            <button onClick={handleLoginToggle}>{isLoggedIn ? "Log Out" : "Log In"}</button>
-        </Link>
+        <div className={styles.login}>
+            {user.name ? (
+                <button onClick={handleLogout}>{user.name} (Log Out)</button>
+            ) : (
+                <Link to="/login">
+                    <button>Log In</button>
+                </Link>
+            )}
+        </div>
     );
 };
 

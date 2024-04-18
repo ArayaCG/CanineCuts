@@ -1,28 +1,32 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Appointment from "../../components/Appointment/Appointment";
 import styles from "./MyAppointments.module.css";
 import axios from "axios";
+import { setUserAppointments } from "../../redux/reducer";
 
 const MyAppointments = () => {
-    const [myAppointments, setAppointments] = useState([]);
+    const appointments = useSelector((state) => state.userAppointments)
+    const user = useSelector((state) => state.userActive);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/appointments/");
-                setAppointments(response.data);
+                const response = await axios.get(`http://localhost:3000/users/${user.id}`);
+                dispatch(setUserAppointments(response.data.appointment));
+
+               
             } catch (error) {
-                console.log("Error a l obtener datos", error);
+                console.log("Error al obtener datos", error);
             }
         };
         fetchData();
     }, []);
 
-    const user = useSelector((state) => state.userActive);
-    const navigate = useNavigate();
-    
     useEffect(() => {
         !user.name && navigate("/");
     }, []);
@@ -31,10 +35,10 @@ const MyAppointments = () => {
         <>
             <h1>My Appointments</h1>
             <div className={styles.appointmentConteiner}>
-                {!myAppointments || myAppointments.length === 0 ? (
+                {!appointments || appointments.length === 0 ? (
                     <h1>No appointments to show</h1>
                 ) : (
-                    myAppointments.map((appointment) => {
+                    appointments.map((appointment) => {
                         return (
                             <Appointment
                                 key={appointment.id}
@@ -42,6 +46,7 @@ const MyAppointments = () => {
                                 time={appointment.time}
                                 description={appointment.description}
                                 status={appointment.status}
+                                id={appointment.id}
                             />
                         );
                     })

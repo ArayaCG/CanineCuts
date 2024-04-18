@@ -20,15 +20,20 @@ export const getAppointmentByIdService = async (id: number): Promise<Appointment
 
 export const createAppointmentService = async (appointmentData: AppointmentDto): Promise<Appointment> => {
     const { userId } = appointmentData;
-
-    const user: User | null = await UserRepository.findOneBy({ id: userId.id });
-
-    if (!user) {
-        throw new Error("El usario no existe en la base de datos");
+    if (typeof userId !== "number") {
+        throw new Error("El campo userId debe ser un número");
     }
 
-    const newAppointment = await AppointmentRepository.create(appointmentData);
-    newAppointment.userId = user;
+    const user: User | null = await UserRepository.findOneBy({ id: userId });
+
+    if (!user) {
+        throw new Error("El usuario no existe en la base de datos");
+    }
+
+    const newAppointment = await AppointmentRepository.create({
+        ...appointmentData,
+        userId: userId,
+    });
 
     await AppointmentRepository.save(newAppointment);
     return newAppointment;

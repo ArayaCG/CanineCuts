@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { validate } from "../../helpers/validate";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import { postLogin } from "../../helpers/postLogin";
 import {useDispatch} from "react-redux"
 import styles from "./Login.module.css";
@@ -12,7 +12,7 @@ const Login = () => {
         username: "",
         password: "",
     };
-
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [form, setForm] = useState(initialState);
     const [errors, setErrors] = useState({});
@@ -30,9 +30,9 @@ const Login = () => {
         e.preventDefault();
         try {
             const response = await postLogin(form);
-            console.log(response);
             dispatch(setUserActive(response.data.user));
             setForm(initialState);
+            navigate("/");
         } catch (error) {
             console.error("Login Error",error);
         }
