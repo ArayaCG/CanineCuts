@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    background-color: #FFFBF8;
+    background-color: #fffbf8;
     padding: 20px;
     border-radius: 6px;
     text-align: center;
@@ -61,16 +61,16 @@
     transform: scale(1.02);
 }
 
-.button:disabled{
+.button:disabled {
     background-color: gray;
 }
-form p{
+form p {
     margin-top: 3em;
 }
-p a{
+p a {
     color: blue;
     transition: font-size 0.3s ease-in-out;
 }
-p a:hover{
+p a:hover {
     font-size: 1.1em;
-}   
+}

@@ -1,12 +1,12 @@
-.footerConteiner{
+.footerConteiner {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #FBFFA5;
+    background-color: #fbffa5;
     height: 10vh;
 }
-.footerConteiner p{
+.footerConteiner p {
     font-family: "Comic Neue", cursive;
     font-style: italic;
     padding-top: 10px;
@@ -24,7 +24,7 @@
 
 .redes a:hover {
     cursor: pointer;
-    animation: girar 1s linear forwards; /* Aplica la animación */
+    animation: girar 1s linear forwards;
 }
 .redes a ion-icon {
     width: 1em;

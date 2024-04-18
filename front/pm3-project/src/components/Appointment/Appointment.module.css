@@ -31,7 +31,7 @@
     border: none;
     cursor: pointer;
 }
-.card button{
+.card button {
     background-color: #ff9900;
     color: #fff;
     border-radius: 1em;
@@ -47,7 +47,7 @@
     transform: scale(1.1);
 }
 
-.card button:disabled{
+.card button:disabled {
     background-color: gray;
     transform: none;
 }

@@ -51,9 +51,10 @@ const MyAppointments = () => {
                         })
                     )}
                 </div>
-            <p>
-                Do you want to create a new appointment? <Link to="/newAppointment">Create new appointment here</Link>
-            </p>
+                <p>
+                    Do you want to create a new appointment?{" "}
+                    <Link to="/newAppointment">Create new appointment here</Link>
+                </p>
             </div>
         </>
     );

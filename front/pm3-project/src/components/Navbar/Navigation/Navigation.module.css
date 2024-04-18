@@ -6,7 +6,7 @@
     cursor: pointer;
     transition: font-size 0.3s ease-in-out;
 }
-.navigation:hover{
-    font-size: 1.6em; 
+.navigation:hover {
+    font-size: 1.6em;
     text-shadow: 1px 1px 2px black;
 }

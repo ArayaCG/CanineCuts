@@ -25,10 +25,11 @@ export const validate = (input) => {
     if (!passwordRegex.test(input.password)) {
         errors = {
             ...errors,
-            password: "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit",
+            password:
+                "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit",
         };
     }
-    if (input.password !== input.passwordRepeat) { 
+    if (input.password !== input.passwordRepeat) {
         errors = {
             ...errors,
             passwordRepeat: "Passwords must match",

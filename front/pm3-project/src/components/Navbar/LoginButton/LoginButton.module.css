@@ -1,5 +1,5 @@
-.login button{
-    background-color: #ECEDE5;
+.login button {
+    background-color: #ecede5;
     color: black;
     width: 10em;
     height: 2em;
@@ -8,7 +8,7 @@
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
-.login button:hover{
+.login button:hover {
     transform: scale(1.1);
     border: none;
     box-shadow: 0 0 4px black;

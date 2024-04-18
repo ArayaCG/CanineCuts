@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { validate } from "../../helpers/validate";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { postLogin } from "../../helpers/postLogin";
-import {useDispatch} from "react-redux"
+import { useDispatch } from "react-redux";
 import styles from "./Login.module.css";
 import { setUserActive } from "../../redux/reducer";
-
 
 const Login = () => {
     const initialState = {
@@ -26,7 +25,7 @@ const Login = () => {
         setErrors(validate(form, errors));
     }, [form]);
 
-    const handleSubmit = async  (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const response = await postLogin(form);
@@ -34,10 +33,9 @@ const Login = () => {
             setForm(initialState);
             navigate("/");
         } catch (error) {
-            console.error("Login Error",error);
+            console.error("Login Error", error);
         }
     };
-    
 
     return (
         <div className={styles.formConteiner}>

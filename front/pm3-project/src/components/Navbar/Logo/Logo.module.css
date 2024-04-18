@@ -3,12 +3,11 @@
     height: 2em;
     color: #ffa21f;
 }
-.logo:hover{
+.logo:hover {
     transition: transform 0.6s ease;
     transform: scale(0.8) rotate(360deg);
 }
 .contenedor {
     display: flex;
     align-items: center;
-    
 }

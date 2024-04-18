@@ -1,4 +1,4 @@
-.appointmentConteiner{
+.appointmentConteiner {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -6,17 +6,20 @@
     margin-bottom: 1em;
     flex-wrap: wrap;
 }
-.title{
+
+.title {
     text-align: center;
     text-decoration: underline;
-    background-color: #FFFBF8;
+    background-color: #fffbf8;
     margin-bottom: 1em;
 }
-.todoConteiner{
+
+.todoConteiner {
     height: 90vh;
-    background-color: #FFFBF8;
+    background-color: #fffbf8;
     padding-top: 1em;
 }
-p{
+
+p {
     text-align: center;
 }

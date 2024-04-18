@@ -15,16 +15,16 @@ export const userSlice = createSlice({
         setUserAppointments: (state, action) => {
             state.userAppointments = action.payload;
         },
-        logoutUser: (state) =>{
-            state.userActive = {}
+        logoutUser: (state) => {
+            state.userActive = {};
         },
-        cancelAppointment: (state, action) =>{
-            state.userAppointments = state.userAppointments.map((appointment)=>{
-                if(appointment.id === action.payload){
-                    return {...appointment, status:"cancelled"}
+        cancelAppointment: (state, action) => {
+            state.userAppointments = state.userAppointments.map((appointment) => {
+                if (appointment.id === action.payload) {
+                    return { ...appointment, status: "cancelled" };
                 }
                 return appointment;
-            })
+            });
         },
     },
 });

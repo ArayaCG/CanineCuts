@@ -5,17 +5,17 @@
     background-color: #ffa21f;
     height: 90vh;
 }
-.aboutUsConteinter h1{
+.aboutUsConteinter h1 {
     color: white;
     font-size: 6em;
     text-align: center;
 }
-.aboutUsConteinter p{
-    color: #FBFFA5;
+.aboutUsConteinter p {
+    color: #fbffa5;
     font-size: 2em;
     text-align: center;
 }
-.img{
+.img {
     width: 50%;
     border-radius: 40%;
     margin: 1em;

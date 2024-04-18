@@ -4,7 +4,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* Margin and padding reset */
@@ -23,8 +23,8 @@ blockquote,
 pre,
 figure,
 hr {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 /* Typography reset */
@@ -35,24 +35,24 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: "Comic Neue", cursive;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-  font-style: normal;
-  background-color: #FFFBF8;
+    font-family: "Comic Neue", cursive;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    font-style: normal;
+    background-color: #fffbf8;
 }
 
 /* List reset */
 ul,
 ol {
-  list-style: none;
+    list-style: none;
 }
 
 /* Links reset */
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 /* Form element reset */
@@ -60,53 +60,53 @@ input,
 button,
 select,
 textarea {
-  margin: 0;
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: none;
-  /* Ajusta otros estilos según sea necesario */
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    /* Ajusta otros estilos según sea necesario */
 }
 
 /* Resetting appearance */
 button {
-  background-color: transparent;
-  padding: 0;
+    background-color: transparent;
+    padding: 0;
 }
 
 /* Resetting button */
 button:focus {
-  outline: none;
+    outline: none;
 }
 
 /* Resetting images */
 img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 /* Resetting table */
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 /* Resetting fieldset */
 fieldset {
-  margin: 0;
-  padding: 0;
-  border: none;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 /* Resetting blockquote */
 blockquote {
-  quotes: none;
+    quotes: none;
 }
 
 /* Resetting address */
 address {
-  font-style: normal;
+    font-style: normal;
 }
 
 /* Resetting embedded content */
@@ -114,29 +114,29 @@ iframe,
 embed,
 object,
 video {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 /* Resetting audio */
 audio {
-  display: inline-block;
+    display: inline-block;
 }
 
 /* Resetting inline elements */
 abbr[title],
 dfn {
-  cursor: help;
+    cursor: help;
 }
 
 /* Resetting preformatted text */
 pre {
-  white-space: pre-wrap;
+    white-space: pre-wrap;
 }
 
 /* Resetting forms */
 input::-ms-clear {
-  display: none;
+    display: none;
 }
 
 /* Resetting responsive media */
@@ -147,65 +147,65 @@ audio,
 iframe,
 embed,
 object {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 /* Resetting SVG */
 svg {
-  display: block;
+    display: block;
 }
 
 /* Resetting details */
 details {
-  display: block;
+    display: block;
 }
 
 /* Resetting summary */
 summary {
-  display: list-item;
-  cursor: pointer;
+    display: list-item;
+    cursor: pointer;
 }
 
 /* Resetting progress */
 progress {
-  vertical-align: baseline;
+    vertical-align: baseline;
 }
 
 /* Resetting text emphasis */
 b,
 strong {
-  font-weight: bolder;
+    font-weight: bolder;
 }
 
 /* Resetting italic */
 i,
 cite,
 em {
-  font-style: italic;
+    font-style: italic;
 }
 
 /* Resetting subscript */
 sub {
-  vertical-align: sub;
+    vertical-align: sub;
 }
 
 /* Resetting superscript */
 sup {
-  vertical-align: super;
+    vertical-align: super;
 }
 
 /* Resetting definition terms */
 dt {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 /* Resetting definition descriptions */
 dd {
-  margin: 0;
+    margin: 0;
 }
 
 /* Resetting text formatting */
 mark {
-  background-color: transparent;
-  color: inherit;
+    background-color: transparent;
+    color: inherit;
 }
