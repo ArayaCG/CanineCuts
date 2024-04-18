@@ -1,10 +1,10 @@
-import vite from "/vite.svg";
+import bone from "/bone.svg";
 import styles from "./Logo.module.css";
 
 const Logo = () => {
     return (
         <div className={styles.contenedor}>
-            <img src={vite} className={styles.logo} alt="Vite logo" />
+            <img src={bone} className={styles.logo} alt="bone logo" />
             <h1>CanineCuts</h1>
         </div>
     );

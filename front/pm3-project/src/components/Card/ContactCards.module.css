@@ -1,0 +1,19 @@
+.card {
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    align-items: center;
+    height: 10em;
+}
+
+.text {
+    font-size: 2em;
+    flex: 3;
+    text-align: center;
+}
+
+.card ion-icon{
+    font-size: 4em;
+    text-align: center;
+    flex: 1;
+}

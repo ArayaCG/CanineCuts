@@ -1,5 +1,6 @@
 import styles from "./Appointment.module.css";
 
+// eslint-disable-next-line react/prop-types
 const Appointment = ({ date, time, status, description }) => {
     return (
         <div className={styles.card}>

@@ -1,0 +1,43 @@
+.footerConteiner{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FBFFA5;
+    height: 14vh;
+    
+}
+.footerConteiner p{
+    font-family: "Comic Neue", cursive;
+    font-style: italic;
+    padding-top: 10px;
+}
+.redes {
+    display: flex;
+    width: 10rem;
+    gap: 1em;
+    padding: 1em;
+}
+.redes a {
+    text-decoration: none;
+    font-size: 1.6em;
+}
+
+.redes a:hover {
+    cursor: pointer;
+    animation: girar 1s linear forwards; /* Aplica la animación */
+}
+.redes a ion-icon {
+    width: 1em;
+}
+@keyframes girar {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-0.8em) rotate(-180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(-360deg);
+    }
+}

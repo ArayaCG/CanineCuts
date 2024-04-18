@@ -1,11 +1,15 @@
 .login {
-    background-color: brown;
-    color: white;
+    background-color: #ECEDE5;
+    color: black;
     width: 10em;
+    height: 2em;
+    border: 0.6px solid #c9c9c6;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
 .login:hover {
     transform: scale(1.1);
+    border: none;
+    box-shadow: 0 0 4px black;
 }

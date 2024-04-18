@@ -1,16 +1,16 @@
-.homeConteinter {
+.aboutUsConteinter {
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: #ffa21f;
     height: 90vh;
 }
-.homeConteinter h1{
+.aboutUsConteinter h1{
     color: white;
     font-size: 6em;
     text-align: center;
 }
-.homeConteinter h2{
+.aboutUsConteinter p{
     color: #FBFFA5;
     font-size: 2em;
     text-align: center;

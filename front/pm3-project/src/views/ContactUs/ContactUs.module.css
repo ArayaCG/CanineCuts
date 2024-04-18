@@ -1,0 +1,18 @@
+.contactUsConteinter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #FFFBF8;
+    height: 90vh;
+}
+.cardConteiner{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+.card{
+    color: white;
+    background-color: #FF862F;
+}
