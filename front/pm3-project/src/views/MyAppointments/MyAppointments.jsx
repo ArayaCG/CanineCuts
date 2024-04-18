@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Appointment from "../../components/Appointment/Appointment";
 import styles from "./MyAppointments.module.css";
 import axios from "axios";
@@ -16,6 +18,13 @@ const MyAppointments = () => {
             }
         };
         fetchData();
+    }, []);
+
+    const user = useSelector((state) => state.userActive);
+    const navigate = useNavigate();
+    
+    useEffect(() => {
+        !user.name && navigate("/");
     }, []);
 
     return (

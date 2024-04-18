@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { validate } from "../../helpers/validate";
 import { Link } from "react-router-dom";
 import { postLogin } from "../../helpers/postLogin";
+import {useDispatch} from "react-redux"
 import styles from "./Login.module.css";
+import { setUserActive } from "../../redux/reducer";
+
 
 const Login = () => {
     const initialState = {
@@ -10,6 +13,7 @@ const Login = () => {
         password: "",
     };
 
+    const dispatch = useDispatch();
     const [form, setForm] = useState(initialState);
     const [errors, setErrors] = useState({});
 
@@ -22,11 +26,18 @@ const Login = () => {
         setErrors(validate(form, errors));
     }, [form]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async  (e) => {
         e.preventDefault();
-        postLogin(form);
-        setForm(initialState);
+        try {
+            const response = await postLogin(form);
+            console.log(response);
+            dispatch(setUserActive(response.data.user));
+            setForm(initialState);
+        } catch (error) {
+            console.error("Login Error",error);
+        }
     };
+    
 
     return (
         <div className={styles.formConteiner}>
