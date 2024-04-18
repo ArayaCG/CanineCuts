@@ -6,8 +6,17 @@ const Navigation = () => {
             <a href="/" className={styles.navigation}>
                 Home
             </a>
+            |
             <a href="/Appointments" className={styles.navigation}>
                 My Appointments
+            </a>
+            |
+            <a href="/AboutUs" className={styles.navigation}>
+                About Us
+            </a>
+            |
+            <a href="/ContactUs" className={styles.navigation}>
+                Contac Us
             </a>
         </div>
     );

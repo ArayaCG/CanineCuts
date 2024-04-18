@@ -13,16 +13,19 @@
     display: flex;
     margin-bottom: 10px;
 }
+
 .card__label {
     font-weight: bold;
     margin-right: 5px;
     align-items: stretch;
 }
+
 .card__value {
+    font-family: "Comic Neue", cursive;
     font-style: italic;
 }
 
-.card:hover{
+.card:hover {
     transform: scale(1.1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     border: none;
