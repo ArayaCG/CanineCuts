@@ -1,6 +1,5 @@
 import styles from "./ContactCards.module.css";
 
-// eslint-disable-next-line react/prop-types
 const ContactCards = ({ name, number, ionicName }) => {
     return (
         <div className={styles.card}>
