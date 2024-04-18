@@ -33,6 +33,7 @@ export const postAppointment = async (req: Request, res: Response) => {
         res.status(400).json({ message: error.message });
     }
 };
+
 export const putAppointment = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;

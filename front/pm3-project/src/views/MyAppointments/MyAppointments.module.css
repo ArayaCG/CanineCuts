@@ -3,6 +3,19 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    
     flex-wrap: wrap;
+}
+.title{
+    text-align: center;
+    text-decoration: underline;
+    background-color: #FFFBF8;
+}
+.todoConteiner{
+    height: 90vh;
+    background-color: #FFFBF8;
+    padding-top: 1em;
+}
+p{
+    text-align: center;
 }

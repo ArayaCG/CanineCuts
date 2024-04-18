@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { validate } from "../../helpers/validate";
-import { postData } from "../../helpers/postData";
-import styles from "./Register.module.css";
+import axios from "axios";
+import styles from "./CreateAppointment.module.css";
+import { useSelector } from "react-redux";
+import validateAppointment from "../../helpers/validateAppointment";
+import { useNavigate } from "react-router-dom";
 
-const Register = () => {
+const CreateAppointment = () => {
+    const user = useSelector((state) => state.userActive);
+    const navigate = useNavigate();
     const initialState = {
-        name: "",
-        email: "",
-        birthdate: "",
-        nDni: "",
-        username: "",
-        password: "",
-        passwordRepeat: "",
+        date: "",
+        time: "",
+        description: "",
     };
 
     const [form, setForm] = useState(initialState);
@@ -21,29 +21,45 @@ const Register = () => {
         const { name, value } = event.target;
         setForm({ ...form, [name]: value });
     };
+    useEffect(() => {
+        !user.name && navigate("/");
+    }, []);
 
     useEffect(() => {
-        setErrors(validate(form, errors));
+        setErrors(validateAppointment(form));
     }, [form]);
 
-    const handleSubmit = (e) => {
+    const postData = async () => {
+        try {
+            const response = await axios.post("http://localhost:3000/appointment/schedule", {
+                date: form.date,
+                time: form.time,
+                userId: user.id,
+                status: "active",
+                description: form.description,
+            });
+            alert("Appointment successfully registered");
+            console.log(response);
+        } catch (error) {
+            alert("Error creating appointment");
+        }
+    };
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        postData(form);
+        postData();
         setForm(initialState);
     };
 
     return (
         <div className={styles.formConteiner}>
-            <h2>User Registration</h2>
+            <h2>New Appointment</h2>
             <form onSubmit={handleSubmit}>
                 {[
-                    { label: "Name", name: "name", type: "text" },
-                    { label: "Email", name: "email", type: "text" },
-                    { label: "Username", name: "username", type: "text" },
-                    { label: "Password", name: "password", type: "password" },
-                    { label: "Repeat password", name: "passwordRepeat", type: "password" },
-                    { label: "DNI", name: "nDni", type: "text" },
-                    { label: "Birthdate", name: "birthdate", type: "date" },
+                    { label: "Date", name: "date", type: "date" },
+                    { label: "Time", name: "time", type: "time" },
+                    { label: "Description", name: "description", type: "text" },
                 ].map(({ name, label, type }) => {
                     return (
                         <div className={styles.inputConteinter} key={name}>
@@ -64,23 +80,15 @@ const Register = () => {
                     );
                 })}
                 <button
-                    disabled={
-                        errors.name ||
-                        errors.username ||
-                        errors.password ||
-                        errors.email ||
-                        errors.passwordRepeat ||
-                        errors.nDni ||
-                        errors.birthdate
-                    }
+                    disabled={errors.date || errors.time || errors.description}
                     type="submit"
                     className={styles.button}
                 >
-                    Register
+                    Create
                 </button>
             </form>
         </div>
     );
 };
 
-export default Register;
+export default CreateAppointment;

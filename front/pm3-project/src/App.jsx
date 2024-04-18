@@ -7,6 +7,8 @@ import Footer from "./components/Footer/Footer";
 import AboutUs from "./views/AboutUs/AboutUs";
 import ContactUs from "./views/ContactUs/ContactUs";
 import { Routes, Route } from "react-router-dom";
+import NewAppointment from "./views/CreateAppointment/CreateAppointment";
+
 
 function App() {
     return (
@@ -19,6 +21,7 @@ function App() {
                 <Route path="/contactUs" element={<ContactUs />}/>
                 <Route path="/login" element={<Login />}/>
                 <Route path="/register" element={<Register />}/>
+                <Route path="/newAppointment" element={<NewAppointment />}/>
             </Routes>
             <Footer />
         </>
