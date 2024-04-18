@@ -38,3 +38,6 @@
     border-radius: 40%;
     margin: 1em;
 }
+.title{
+    text-decoration: underline;
+}

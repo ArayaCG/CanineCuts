@@ -28,7 +28,7 @@ const dataCards = [
     return (
         <>
             <div className={styles.contactUsConteinter}>
-                <h2>Dont hesitate to contact us</h2>
+                <h1 className={styles.title}>Dont hesitate to contact us!</h1>
                 <div className={styles.cardConteiner}>
                     {dataCards.map((cards) => {
                         return (
