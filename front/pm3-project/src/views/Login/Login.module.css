@@ -2,8 +2,10 @@
     margin: auto;
     margin-top: 20px;
     width: 90%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 20px;
     background-color: ghostwhite;
     padding: 20px;
@@ -15,7 +17,7 @@
     position: relative;
     display: flex;
     width: 100%;
-    margin: 1em;
+    margin: 2em 1em;
     align-items: center;
     padding-right: 1em;
 }
@@ -62,3 +64,13 @@
 .button:disabled{
     background-color: gray;
 }
+form p{
+    margin-top: 3em;
+}
+p a{
+    color: blue;
+    transition: font-size 0.3s ease-in-out;
+}
+p a:hover{
+    font-size: 1.1em;
+}   

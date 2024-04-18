@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./LoginButton.module.css";
 
 const LoginButton = () => {
@@ -9,9 +10,9 @@ const LoginButton = () => {
     };
 
     return (
-        <button onClick={handleLoginToggle} className={styles.login}>
-            {isLoggedIn ? "Log Out" : "Log In"}
-        </button>
+        <Link to={isLoggedIn ? "/" : "/login"} className={styles.login}>
+            <button onClick={handleLoginToggle}>{isLoggedIn ? "Log Out" : "Log In"}</button>
+        </Link>
     );
 };
 

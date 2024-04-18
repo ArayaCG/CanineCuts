@@ -1,23 +1,24 @@
 import styles from "./Navigation.module.css";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
     return (
         <div>
-            <a href="/" className={styles.navigation}>
+            <Link to="/" className={styles.navigation}>
                 Home
-            </a>
+            </Link>
             |
-            <a href="/Appointments" className={styles.navigation}>
+            <Link to="/appointments" className={styles.navigation}>
                 My Appointments
-            </a>
+            </Link>
             |
-            <a href="/AboutUs" className={styles.navigation}>
+            <Link to="/aboutUs" className={styles.navigation}>
                 About Us
-            </a>
+            </Link>
             |
-            <a href="/ContactUs" className={styles.navigation}>
+            <Link to="/contactUs" className={styles.navigation}>
                 Contac Us
-            </a>
+            </Link>
         </div>
     );
 };

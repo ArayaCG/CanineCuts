@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import styles from "./Login.module.css";
 import { validate } from "../../helpers/validate";
+import { Link } from "react-router-dom";
 import { postLogin } from "../../helpers/postLogin";
+import styles from "./Login.module.css";
 
 const Login = () => {
     const initialState = {
@@ -56,6 +57,9 @@ const Login = () => {
                 <button disabled={errors.username || errors.password} type="submit" className={styles.button}>
                     Login
                 </button>
+                <p>
+                    Don´t have an account? <Link to="/register">Register here</Link>
+                </p>
             </form>
         </div>
     );
